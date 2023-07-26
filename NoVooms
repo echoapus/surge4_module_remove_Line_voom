@@ -1,0 +1,15 @@
+#!name=Remove LINE Vooms
+#!desc=Remove_Line_Vooms - enable MitM over HTTP/2
+#!system=ios
+
+[Rule]
+URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r/.*\/sfv\/.*\/mp4, REJECT-DROP
+URL-REGEX,^https:\/\/gw\.line\.naver.jp\/.*\/timeline/tab/status.json, REJECT-DROP
+URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/r\/.*\.zip, REJECT-DROP
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/[Ss][0-9], REJECT-DROP
+URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/h\/.*\/.*, REJECT-DROP
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/st\/api\/.*\/story\/recentstory\/.*, REJECT-DROP
+URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/tl\/discover\/api\/.*\/recommendTab\/feeds, REJECT-DROP
+[MITM]
+
+hostname = %APPEND% a.line.me, w.line.me, gw.line.naver.jp, buy.line.me, crs-event.line.me, obs.line-scdn.net, cix.line-apps.com, d.line-scdn.net, scdn.line-apps.com, sch.line.me, uts-front.line-apps.com, static.line-scdn.net, nelo2-col.linecorp.com 
