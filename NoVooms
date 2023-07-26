@@ -1,5 +1,5 @@
-#!name=Remove LINE Vooms
-#!desc=Remove_Line_Vooms - enable MitM over HTTP/2
+#!name=NoVooms
+#!desc=Remove_Line_Vooms - enable MitM
 #!system=ios
 
 [Rule]
