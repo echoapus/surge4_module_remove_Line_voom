@@ -10,6 +10,8 @@ URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/r\/.*\.zip, REJECT
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/h\/.*\/.*, REJECT
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/st\/api\/.*\/story\/recentstory\/.*, REJECT
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/tl\/discover\/api\/.*\/recommendTab\/feeds, REJECT
+URL-REGEX,^https:\/\/jp-col-tcp\.nelo\.linecorp\.com$, REJECT
+URL-REGEX,^https:\/\/^voom.*\.line-scdn\.net$, REJECT
 
 [MITM]
 hostname = %APPEND% a.line.me, w.line.me, gw.line.naver.jp, buy.line.me, crs-event.line.me, obs.line-scdn.net, cix.line-apps.com, d.line-scdn.net, scdn.line-apps.com, sch.line.me, uts-front.line-apps.com, static.line-scdn.net, nelo2-col.linecorp.com 
