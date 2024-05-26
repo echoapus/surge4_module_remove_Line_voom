@@ -5,11 +5,9 @@
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r/.*\/sfv\/.*\/mp4, REJECT
 URL-REGEX,^https:\/\/gw\.line\.naver.jp\/.*\/timeline/tab/status.json, REJECT
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/r\/.*\.zip, REJECT
-#URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/[SsFf][0-9], REJECT
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/h\/.*\/.*, REJECT
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/st\/api\/.*\/story\/recentstory\/.*, REJECT
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/tl\/discover\/api\/.*\/recommendTab\/feeds, REJECT
-#URL-REGEX,^https:\/\/jp-col-tcp\.nelo\.linecorp\.com$, REJECT
 URL-REGEX,^https:\/\/^voom.*\.line-scdn\.net$, REJECT
 
 [MITM]
