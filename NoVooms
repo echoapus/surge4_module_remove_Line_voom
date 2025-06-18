@@ -1,31 +1,37 @@
-#!name=NoVooms Conservative
-#!desc=Remove LINE Vooms - Conservative Version with MitM
+#!name=NoVooms Conservative - 優化版
+#!desc=Remove LINE Vooms - Conservative Version with MitM (優化動作類型)
 
 [Rule]
-# === 基於原有規則的改進 ===
-# VOOM 影片內容（原有規則）
-URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/.*\/sfv\/.*\/mp4,REJECT
+# === 影片/媒體內容 (使用 REJECT-TINYGIF 避免破圖) ===
+URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/.*\/sfv\/.*\/mp4,REJECT-TINYGIF
+URL-REGEX,^https:\/\/voom-obs\.line-scdn\.net\/r\/lights\/.*\/.*\/mp4,REJECT-TINYGIF
+URL-REGEX,^https:\/\/ad\.line-scdn\.net\/.*\.mp4,REJECT-TINYGIF
 
-# 動態時間軸狀態（原有規則）
+# === API 和一般請求 (使用 REJECT 快速回應) ===
+# 動態時間軸狀態
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/.*\/timeline\/tab\/status\.json,REJECT
 
-# VOOM 資源包（原有規則）
+# VOOM 相關 API (修正語法)
+URL-REGEX,^https:\/\/legy\.line-apps\.com\/ext\/videohub\/.*\/api\/.*\/.*,REJECT
+
+# 商店相關
+URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/shop\/.*\/.*,REJECT
+
+# VOOM 資源包
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/r\/.*\.zip,REJECT
 URL-REGEX,^https:\/\/obs\.line-scdn\.net\/r\/myhome\/h\/.*\/.*,REJECT
 
-# VOOM 故事功能（原有規則）
+# VOOM 故事功能
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/st\/api\/.*\/story\/recentstory\/.*,REJECT
 
-# 推薦內容（原有規則）
+# 推薦內容
 URL-REGEX,^https:\/\/gw\.line\.naver\.jp\/tl\/discover\/api\/.*\/recommendTab\/feeds,REJECT
 
-# === 語法修正 ===
-# 修正原有的錯誤規則
+# 通用 VOOM 域名阻擋
 URL-REGEX,^https:\/\/[^\/]*voom[^\/]*\.line-scdn\.net,REJECT
 
-# === 已知的數據收集（保守添加）===
-# 這個在原 MITM 列表中，應該是已確認的
-URL-REGEX,^https:\/\/nelo2-col\.linecorp\.com,REJECT
+# === 數據收集 (使用 REJECT-DROP 更隱蔽) ===
+URL-REGEX,^https:\/\/nelo2-col\.linecorp\.com,REJECT-DROP
 
 [MITM]
-hostname = %APPEND% a.line.me, w.line.me, gw.line.naver.jp, buy.line.me, crs-event.line.me, obs.line-scdn.net, cix.line-apps.com, d.line-scdn.net, scdn.line-apps.com, sch.line.me, uts-front.line-apps.com, static.line-scdn.net, nelo2-col.linecorp.com
+hostname = %APPEND% a.line.me, w.line.me, gw.line.naver.jp, buy.line.me, crs-event.line.me, obs.line-scdn.net, cix.line-apps.com, d.line-scdn.net, scdn.line-apps.com, sch.line.me, uts-front.line-apps.com, static.line-scdn.net, nelo2-col.linecorp.com, voom-obs.line-scdn.net, ad.line-scdn.net, legy.line-apps.com
